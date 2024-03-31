@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #7e57c2;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #673ab7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="margin-left:120px;"><img src="download.jpg" alt="img"></h2>
+        <h1>Login</h1>
+        <form id="loginForm" onsubmit="return validateLogin()" action="index.html" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+        <h5 style=" color: #e10a31;">any problem contact admin</h5>
+    </div>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Hardcoded username-password pairs for demonstration
+            var users = {
+                "abhi": "1234",
+                "abhi2": "123",
+                "user3": "password3"
+            };
+
+            // Check if the entered username exists and the password matches
+            if (users.hasOwnProperty(username) && users[username] === password) {
+              
+                return true; // Allow form submission
+            } else {
+                alert("Invalid username or password. Please try again.");
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
